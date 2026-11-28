@@ -12,7 +12,7 @@
 
 ## 1. Inputs Expected from Member 1 (Drinking-Water Network & Pressure)
 
-Member 1 provides drinking-water pipeline geometries, coordinate reference system metadata, and drinking-water line pressure.
+Member 1 provides only the drinking-water pipeline geometry, its coordinate reference system metadata, and drinking-water line pressure. Sewer geometry is owned by Member 3 (Section 2).
 
 ### 1.1 Spatial Proximity Request (`POST /api/v1/sewer/spatial/proximity`)
 
@@ -20,8 +20,6 @@ Member 1 provides drinking-water pipeline geometries, coordinate reference syste
 | :--- | :--- | :--- | :--- | :--- |
 | `water_network_geojson` | `object \| null` | Optional (nullable) | GeoJSON `FeatureCollection` | Drinking-water pipes (`LineString` / `MultiLineString`) with properties `pipe_id` (`string`), `diameter_m` (`number`, m), `material` (`string`), `pressure_zone` (`string`). When `null`, endpoint returns `awaiting_member1_water_network_data`. |
 | `water_crs` | `string \| null` | Required if `water_network_geojson` provided (unless embedded in GeoJSON `crs`) | EPSG / CRS string | Explicit CRS such as `"EPSG:4326"` or projected UTM EPSG in meters (e.g. `"EPSG:32643"`). |
-| `sewer_geojson` | `object \| null` | Required when `water_network_geojson` is provided | GeoJSON `FeatureCollection` | Georeferenced sewer pipes/nodes (`Point` / `LineString`) with `asset_id` (`string`) and `asset_type` (`string`). Required because `bluepulse_sewer.inp` uses schematic `Units None` coordinates. |
-| `sewer_crs` | `string \| null` | Required if `sewer_geojson` provided (unless embedded in GeoJSON `crs`) | EPSG / CRS string | Explicit CRS matching real-world sewer coordinates. |
 | `target_metric_crs` | `string \| null` | Optional | Projected metric EPSG | Optional projected CRS in meters; if `null`, UTM zone is auto-estimated for geographic CRSs. Geographic CRSs (e.g. `"EPSG:4326"`) are rejected as `target_metric_crs` (`422`). |
 
 ### 1.2 Drinking-Water Pressure & Derived Proximity (`POST /api/v1/sewer/cross-contamination/assess`)
@@ -34,7 +32,22 @@ Member 1 provides drinking-water pipeline geometries, coordinate reference syste
 
 ---
 
-## 2. Inputs Expected from Member 2 (Water Quality Sensors)
+## 2. Inputs Expected from Member 3 (Sewer & Sanitation Geometry)
+
+Member 3 owns and is responsible for providing the sewer network geometry. Member 1 is responsible only for the drinking-water network geometry.
+
+### 2.1 Sewer Geometry for Spatial Proximity (`POST /api/v1/sewer/spatial/proximity`)
+
+| Field | Type | Required | Units / Format | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `sewer_geojson` | `object \| null` | Optional (nullable; pending georeferenced data) | GeoJSON `FeatureCollection` | Georeferenced sewer pipes/nodes (`Point` / `LineString`) with properties `asset_id` (`string`) and `asset_type` (`string`). Member 3 will provide this when real-world georeferenced sewer geometry is available. |
+| `sewer_crs` | `string \| null` | Required if `sewer_geojson` is provided (unless embedded in GeoJSON `crs`) | EPSG / CRS string | Explicit CRS matching the real-world sewer coordinates. |
+
+**Current geometry limitation:** The current EPA SWMM sewer model uses schematic/local coordinates (`[MAP] Units None`), not real-world georeferenced coordinates. These schematic coordinates must not be treated as GIS locations or used to calculate real-world proximity to drinking-water pipes. Member 3 will provide georeferenced sewer GeoJSON with an explicit CRS when available. Until then, `sewer_geojson` and `sewer_crs` must remain `null`/unavailable for real-world spatial proximity calculations.
+
+---
+
+## 3. Inputs Expected from Member 2 (Water Quality Sensors)
 
 Member 2 provides drinking-water quality sensor telemetry used in `POST /api/v1/sewer/cross-contamination/assess`.
 
@@ -72,9 +85,9 @@ Member 2 provides drinking-water quality sensor telemetry used in `POST /api/v1/
 
 ---
 
-## 3. Outputs Exposed to Member 4 (Backend & Digital Twin Dashboard)
+## 4. Outputs Exposed to Member 4 (Backend & Digital Twin Dashboard)
 
-### 3.1 Module Health (`GET /api/v1/sewer/health`)
+### 4.1 Module Health (`GET /api/v1/sewer/health`)
 ```json
 {
   "module": "BluePulse Member 3 - Sewer & Sanitation",
@@ -98,7 +111,7 @@ Member 2 provides drinking-water quality sensor telemetry used in `POST /api/v1/
 }
 ```
 
-### 3.2 Scenario Metadata (`GET /api/v1/sewer/scenarios` -> `ScenarioInfo[]`)
+### 4.2 Scenario Metadata (`GET /api/v1/sewer/scenarios` -> `ScenarioInfo[]`)
 
 | Field | Type | Units | Description |
 | :--- | :--- | :--- | :--- |
@@ -110,7 +123,7 @@ Member 2 provides drinking-water quality sensor telemetry used in `POST /api/v1/
 | `assumptions` | `string[]` | — | Documented modeling assumptions. |
 | `conduit_diameters_m` | `object` (`Dict[str, float]`) | meters (`m`) | Circular diameter per SWMM link ID (`"1"`, `"2"`, `"3"`). |
 
-### 3.3 Telemetry Readings (`GET /api/v1/sewer/readings/{scenario}`)
+### 4.3 Telemetry Readings (`GET /api/v1/sewer/readings/{scenario}`)
 
 Returns pagination wrapper `{scenario, resolution, total_records, offset, returned_records, records}`:
 * **`resolution="step"`** (`38` fields per record, ~10-second SWMM routing steps):
@@ -121,7 +134,7 @@ Returns pagination wrapper `{scenario, resolution, total_records, offset, return
 * **`resolution="report"`** (`34` fields per record, 5-minute SWMM binary `.out` series):
   * `timestamp` (`string`), `scenario` (`string`), `system_rainfall_mm_hr` (`float`, mm/hr), `system_runoff_cms` (`float`, m³/s), `system_flood_losses_cms` (`float`, m³/s), `system_outfall_cms` (`float`, m³/s), per-node `*_depth_m`, `*_head_m`, `*_inflow_cms`, `*_flooding_cms`, and per-conduit `*_flow_cms`, `*_depth_m`, `*_velocity_mps`, `*_capacity_ratio`.
 
-### 3.4 Anomaly Alerts (`GET /api/v1/sewer/anomalies/{scenario}`)
+### 4.4 Anomaly Alerts (`GET /api/v1/sewer/anomalies/{scenario}`)
 
 Returns `{scenario, total_matching_alerts, returned_alerts, alerts}` where each item matches `AnomalyAlertRecord`:
 
@@ -141,7 +154,7 @@ Returns `{scenario, total_matching_alerts, returned_alerts, alerts}` where each 
 | `suspected_condition` | `string` | — | Hypothesis text (never physical proof). |
 | `disclaimer` | `string` | — | Mandatory non-confirmation disclaimer. |
 
-### 3.5 Overflow Risk Summary (`GET /api/v1/sewer/risk/{scenario}`)
+### 4.5 Overflow Risk Summary (`GET /api/v1/sewer/risk/{scenario}`)
 
 Returns `{network_max_risk_score, network_highest_status, asset_summaries, risk_csv}` where each `asset_summaries` item has:
 
@@ -161,7 +174,7 @@ Returns `{network_max_risk_score, network_highest_status, asset_summaries, risk_
 | `max_risk_score` / `mean_risk_score` | `float` | `0–100` | Explainable composite risk score. |
 | `highest_hydraulic_state` | `string` | — | `NORMAL`, `ANOMALY_ONLY`, `SURCHARGED`, `FLOODING_SIMULATED`, or `CONFIRMED_OVERFLOW`. |
 
-### 3.6 Spatial Proximity Output (`POST /api/v1/sewer/spatial/proximity`)
+### 4.6 Spatial Proximity Output (`POST /api/v1/sewer/spatial/proximity`)
 
 **When Member 1 data is unavailable (`water_network_geojson: null`):**
 ```json
@@ -172,7 +185,7 @@ Returns `{network_max_risk_score, network_highest_status, asset_summaries, risk_
     "map_units": "None",
     "is_schematic_unprojected": true,
     "nodes_found": ["J1", "J2", "J3", "O1"],
-    "note": "bluepulse_sewer.inp currently uses schematic 'Units None' map coordinates. To compute real-world proximity, provide georeferenced GeoJSON geometries with an explicit CRS (e.g., EPSG:4326 or local UTM EPSG) for both networks."
+    "note": "bluepulse_sewer.inp currently uses schematic 'Units None' map coordinates. To compute real-world proximity, Member 1 must provide georeferenced drinking-water GeoJSON and Member 3 must provide georeferenced sewer GeoJSON, each with an explicit CRS (e.g., EPSG:4326 or local UTM EPSG). The current SWMM schematic coordinates are not valid real-world GIS geometry."
   },
   "required_member1_schema": {
     "format": "GeoJSON FeatureCollection",
@@ -209,7 +222,7 @@ Returns `{network_max_risk_score, network_highest_status, asset_summaries, risk_
 }
 ```
 
-### 3.7 Cross-Contamination Indicator Output (`POST /api/v1/sewer/cross-contamination/assess`)
+### 4.7 Cross-Contamination Indicator Output (`POST /api/v1/sewer/cross-contamination/assess`)
 
 | Field | Type | Units / Values | Description |
 | :--- | :--- | :--- | :--- |
@@ -227,7 +240,7 @@ Returns `{network_max_risk_score, network_highest_status, asset_summaries, risk_
 | `contributing_factors` | `string[]` | — | Human-readable rule explanations. |
 | `disclaimer` | `string` | — | Mandatory disclaimer stating field/lab confirmation is required. |
 
-### 3.8 Static JSON Exports (`data/outputs/api_exports/`)
+### 4.8 Static JSON Exports (`data/outputs/api_exports/`)
 * [fault_events.json](file:///c:/Users/ABHIJNA%20A/OneDrive/Documents/BluePulse/data/outputs/api_exports/fault_events.json) — Summary of the 5 non-baseline scenarios for dashboard alerts.
 * [spatial_proximity_status.json](file:///c:/Users/ABHIJNA%20A/OneDrive/Documents/BluePulse/data/outputs/api_exports/spatial_proximity_status.json) — Current spatial readiness (`awaiting_member1_water_network_data`).
 * [cross_contamination_indicators.json](file:///c:/Users/ABHIJNA%20A/OneDrive/Documents/BluePulse/data/outputs/api_exports/cross_contamination_indicators.json) — Peak fault-event indicators explicitly reporting `HIGH` uncertainty and `missing_inputs`.

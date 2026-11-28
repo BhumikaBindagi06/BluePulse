@@ -13,11 +13,18 @@
   ],
   "required_from_member_1": {
     "water_network_geojson": "GeoJSON FeatureCollection of drinking-water pipelines with CRS (e.g. EPSG:4326 or UTM)",
-    "sewer_geojson": "GeoJSON FeatureCollection of georeferenced sewer pipes/nodes matching real-world CRS",
     "water_pressure_bar": "Per-pipe or per-zone drinking-water pressure telemetry (bar)"
   },
   "required_from_member_2": {
     "chlorine_residual_mg_l": "Free chlorine residual readings (mg/L)",
     "turbidity_ntu": "Water turbidity readings (NTU)"
+  },
+  "required_from_member_3": {
+    "sewer_geojson": "GeoJSON FeatureCollection of georeferenced sewer pipes/nodes with an explicit CRS; provided by Member 3 when real-world georeferenced geometry is available"
+  },
+  "sewer_geometry_status": {
+    "current_model_coordinates": "Schematic/local coordinates (SWMM [MAP] Units None); not real-world georeferenced coordinates",
+    "georeferenced_geometry": "Pending; Member 3 will provide sewer GeoJSON with an explicit CRS when available",
+    "proximity_calculation": "Do not calculate real-world sewer-to-water proximity from the current schematic coordinates"
   }
 }
