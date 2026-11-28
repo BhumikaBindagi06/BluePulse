@@ -1,0 +1,2 @@
+"""BluePulse FastAPI backend package."""
+

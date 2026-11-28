@@ -1,0 +1,13 @@
+[
+  {
+    "id": "ev-sample-001",
+    "source": "water-quality-sensor",
+    "summary": "Dissolved oxygen dropped below 5.0 mg/L at Station A",
+    "timestamp": "2026-11-25T12:00:00Z",
+    "metadata": {
+      "station": "Station A",
+      "dissolved_oxygen_mg_l": 4.6
+    }
+  }
+]
+
