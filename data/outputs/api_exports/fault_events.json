@@ -1,0 +1,65 @@
+[
+  {
+    "scenario": "partial_blockage",
+    "title": "Partial Blockage in Conduit C2 (0.30 m -> 0.15 m)",
+    "peak_timestamp": "2026-01-01T01:05:21",
+    "primary_affected_asset": "J2",
+    "highest_hydraulic_state": "ANOMALY_ONLY",
+    "max_risk_score": 22.8,
+    "alert_count": 2131,
+    "modifications": [
+      "Conduit 2 circular diameter reduced from 0.30 m to 0.15 m."
+    ]
+  },
+  {
+    "scenario": "severe_blockage",
+    "title": "Severe Blockage in Conduit C2 (0.30 m -> 0.06 m)",
+    "peak_timestamp": "2026-01-01T04:24:01",
+    "primary_affected_asset": "J2",
+    "highest_hydraulic_state": "FLOODING_SIMULATED",
+    "max_risk_score": 85.04,
+    "alert_count": 16690,
+    "modifications": [
+      "Conduit 2 circular diameter reduced from 0.30 m to 0.06 m.",
+      "Conduit 2 Manning roughness increased from 0.013 to 0.025 to reflect debris drag."
+    ]
+  },
+  {
+    "scenario": "heavy_rainfall",
+    "title": "Heavy Rainfall Storm Runoff & Surcharge",
+    "peak_timestamp": "2026-01-01T02:32:27",
+    "primary_affected_asset": "J2",
+    "highest_hydraulic_state": "FLOODING_SIMULATED",
+    "max_risk_score": 100.0,
+    "alert_count": 14509,
+    "modifications": [
+      "Enabled Rainfall/Runoff via [RAINGAGES], [SUBCATCHMENTS], [SUBAREAS], and [TIMESERIES] STORM_TS.",
+      "Added urban impervious catchments S1 (4.5 ha -> J1) and S2 (4.5 ha -> J2) with peak 60 mm/hr rainfall."
+    ]
+  },
+  {
+    "scenario": "sudden_inflow",
+    "title": "Sudden Abnormal Discharge / Shock Inflow at J2",
+    "peak_timestamp": "2026-01-01T01:41:41",
+    "primary_affected_asset": "J2",
+    "highest_hydraulic_state": "FLOODING_SIMULATED",
+    "max_risk_score": 86.46,
+    "alert_count": 5015,
+    "modifications": [
+      "Added [INFLOWS] time-series discharge SURGE_TS at J2 peaking at 0.14 CMS (140 L/s) from 01:00 to 02:30."
+    ]
+  },
+  {
+    "scenario": "downstream_siltation",
+    "title": "Downstream Obstruction / Siltation in Conduit C3",
+    "peak_timestamp": "2026-01-01T05:57:21",
+    "primary_affected_asset": "J3",
+    "highest_hydraulic_state": "FLOODING_SIMULATED",
+    "max_risk_score": 84.56,
+    "alert_count": 12565,
+    "modifications": [
+      "Conduit 3 circular diameter reduced from 0.30 m to 0.08 m.",
+      "Conduit 3 Manning roughness increased from 0.013 to 0.030."
+    ]
+  }
+]

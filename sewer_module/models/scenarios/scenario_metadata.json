@@ -1,0 +1,120 @@
+{
+  "normal": {
+    "name": "normal",
+    "title": "Normal Dry-Weather Baseline",
+    "inp_path": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\sewer_module\\models\\bluepulse_sewer.inp",
+    "description": "Original bluepulse_sewer.inp dry-weather steady inflow (0.005 CMS at J1).",
+    "modifications": [
+      "None (original preserved baseline model)."
+    ],
+    "assumptions": [
+      "Constant dry-weather inflow of 0.005 CMS (5 L/s) at upstream junction J1.",
+      "All three circular conduits (C1, C2, C3) have 0.30 m diameter, 100 m length, n=0.013, 1% slope.",
+      "All junctions (J1, J2, J3) have 2.0 m maximum depth; free outfall at O1."
+    ],
+    "is_baseline": true,
+    "conduit_diameters_m": {
+      "1": 0.3,
+      "2": 0.3,
+      "3": 0.3
+    }
+  },
+  "partial_blockage": {
+    "name": "partial_blockage",
+    "title": "Partial Blockage in Conduit C2 (0.30 m -> 0.15 m)",
+    "inp_path": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\sewer_module\\models\\bluepulse_blockage.inp",
+    "description": "Original bluepulse_blockage.inp reducing Conduit 2 diameter by 50% (75% area reduction).",
+    "modifications": [
+      "Conduit 2 circular diameter reduced from 0.30 m to 0.15 m."
+    ],
+    "assumptions": [
+      "Represents sediment/grease accumulation constricting effective flow area in Conduit 2 (J2->J3).",
+      "Inflow remains constant at 0.005 CMS at J1."
+    ],
+    "is_baseline": false,
+    "conduit_diameters_m": {
+      "1": 0.3,
+      "2": 0.15,
+      "3": 0.3
+    }
+  },
+  "severe_blockage": {
+    "name": "severe_blockage",
+    "title": "Severe Blockage in Conduit C2 (0.30 m -> 0.06 m)",
+    "inp_path": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\sewer_module\\models\\scenarios\\bluepulse_severe_blockage.inp",
+    "description": "Severe constriction in Conduit 2 (80% diameter reduction, 96% area loss) causing upstream surcharge/overflow.",
+    "modifications": [
+      "Conduit 2 circular diameter reduced from 0.30 m to 0.06 m.",
+      "Conduit 2 Manning roughness increased from 0.013 to 0.025 to reflect debris drag."
+    ],
+    "assumptions": [
+      "Models near-complete obstruction (debris/root intrusion) in C2 while 0.005 CMS continues entering J1.",
+      "Original network elevations, inflow, and simulation window (6 hours) remain unchanged."
+    ],
+    "is_baseline": false,
+    "conduit_diameters_m": {
+      "1": 0.3,
+      "2": 0.06,
+      "3": 0.3
+    }
+  },
+  "heavy_rainfall": {
+    "name": "heavy_rainfall",
+    "title": "Heavy Rainfall Storm Runoff & Surcharge",
+    "inp_path": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\sewer_module\\models\\scenarios\\bluepulse_heavy_rainfall.inp",
+    "description": "Adds a 2-hour intense storm event draining from urban subcatchments into J1 and J2.",
+    "modifications": [
+      "Enabled Rainfall/Runoff via [RAINGAGES], [SUBCATCHMENTS], [SUBAREAS], and [TIMESERIES] STORM_TS.",
+      "Added urban impervious catchments S1 (4.5 ha -> J1) and S2 (4.5 ha -> J2) with peak 60 mm/hr rainfall."
+    ],
+    "assumptions": [
+      "Models stormwater inflow/infiltration entering a combined or storm-impacted sewer.",
+      "Original conduits, slopes, elevations, and 0.005 CMS dry-weather baseflow at J1 are preserved."
+    ],
+    "is_baseline": false,
+    "conduit_diameters_m": {
+      "1": 0.3,
+      "2": 0.3,
+      "3": 0.3
+    }
+  },
+  "sudden_inflow": {
+    "name": "sudden_inflow",
+    "title": "Sudden Abnormal Discharge / Shock Inflow at J2",
+    "inp_path": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\sewer_module\\models\\scenarios\\bluepulse_sudden_inflow.inp",
+    "description": "Sudden high-volume surge injected at manhole J2 between 01:00 and 02:30 (up to 0.14 CMS).",
+    "modifications": [
+      "Added [INFLOWS] time-series discharge SURGE_TS at J2 peaking at 0.14 CMS (140 L/s) from 01:00 to 02:30."
+    ],
+    "assumptions": [
+      "Models sudden unauthorized industrial/tanker discharge, main break intrusion, or upstream pump dump at J2.",
+      "Baseline 0.005 CMS inflow at J1 and all pipe geometries are unchanged."
+    ],
+    "is_baseline": false,
+    "conduit_diameters_m": {
+      "1": 0.3,
+      "2": 0.3,
+      "3": 0.3
+    }
+  },
+  "downstream_siltation": {
+    "name": "downstream_siltation",
+    "title": "Downstream Obstruction / Siltation in Conduit C3",
+    "inp_path": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\sewer_module\\models\\scenarios\\bluepulse_downstream_siltation.inp",
+    "description": "Conduit 3 (J3 -> O1) diameter reduced to 0.08 m with elevated roughness (0.030) to test J3 backwater.",
+    "modifications": [
+      "Conduit 3 circular diameter reduced from 0.30 m to 0.08 m.",
+      "Conduit 3 Manning roughness increased from 0.013 to 0.030."
+    ],
+    "assumptions": [
+      "Models downstream outfall constriction or heavy sediment buildup in C3 causing backwater at J3.",
+      "Dry-weather inflow at J1 remains 0.005 CMS."
+    ],
+    "is_baseline": false,
+    "conduit_diameters_m": {
+      "1": 0.3,
+      "2": 0.3,
+      "3": 0.08
+    }
+  }
+}

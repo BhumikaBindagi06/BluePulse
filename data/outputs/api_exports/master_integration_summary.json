@@ -1,0 +1,2009 @@
+{
+  "legacy_experimental_evidence": {
+    "available": true,
+    "normal_rows": 2160,
+    "normal_columns": [
+      "timestamp",
+      "J1_depth_m",
+      "J2_depth_m",
+      "J3_depth_m",
+      "O1_depth_m",
+      "C1_flow_cms",
+      "C1_velocity_mps",
+      "C2_flow_cms",
+      "C2_velocity_mps",
+      "C3_flow_cms",
+      "C3_velocity_mps"
+    ],
+    "blockage_rows": 2160,
+    "normal_j2_mean_m": 0.046065,
+    "j2_threshold_120pct_m": 0.055278,
+    "blockage_j2_exceeded_count": 2131,
+    "blockage_j1_exceeded_count": 0,
+    "blockage_j3_exceeded_count": 0,
+    "note": "Preserved original datasets. Note: legacy extract_readings.py recorded link.depth into C*_velocity_mps; the new sewer_module/simulation.py extracts true SWMM hydraulic velocities into data/outputs/simulations/."
+  },
+  "plots": {
+    "j2_depth_comparison": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\plots\\scenarios_j2_depth_comparison.png",
+    "c2_flow_velocity_comparison": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\plots\\scenarios_c2_flow_velocity.png",
+    "overflow_risk_timeline": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\plots\\scenarios_overflow_risk_timeline.png"
+  },
+  "spatial_proximity_status": {
+    "status": "awaiting_member1_water_network_data",
+    "message": "No drinking-water pipeline geometries were provided by Member 1. BluePulse never fabricates water-network coordinates.",
+    "sewer_inp_coordinate_metadata": {
+      "map_units": "None",
+      "is_schematic_unprojected": true,
+      "nodes_found": [
+        "J1",
+        "J2",
+        "J3",
+        "O1"
+      ],
+      "note": "bluepulse_sewer.inp currently uses schematic 'Units None' map coordinates. To compute real-world proximity, provide georeferenced GeoJSON geometries with an explicit CRS (e.g., EPSG:4326 or local UTM EPSG) for both networks."
+    },
+    "required_member1_schema": {
+      "format": "GeoJSON FeatureCollection",
+      "crs": "Explicit CRS string such as 'EPSG:4326' or projected UTM EPSG in meters",
+      "required_feature_properties": [
+        "pipe_id",
+        "diameter_m",
+        "material",
+        "pressure_zone"
+      ],
+      "geometry_types": [
+        "LineString",
+        "MultiLineString"
+      ]
+    },
+    "proximity_pairs": []
+  },
+  "cross_contamination_indicators": [
+    {
+      "timestamp": "2026-01-01T01:05:21",
+      "sewer_asset_id": "J2",
+      "nearest_water_pipe_id": null,
+      "status_label": "INSUFFICIENT_DATA_AWAITING_TEAM_INPUTS",
+      "potential_risk_score": 6.84,
+      "investigation_priority": "INDETERMINATE_AWAITING_TEAM_INPUTS",
+      "uncertainty_level": "HIGH",
+      "input_completeness_pct": 20.0,
+      "score_breakdown": {
+        "sewer_hazard_pts": 6.84,
+        "spatial_proximity_pts": 0.0,
+        "water_pressure_pts": 0.0,
+        "water_quality_pts": 0.0
+      },
+      "available_inputs": [
+        "sewer_hydraulic_state",
+        "sewer_risk_score"
+      ],
+      "missing_inputs": [
+        "Member 1: distance_to_water_pipe_m (spatial proximity)",
+        "Member 1: water_pressure_bar (drinking-water line pressure)",
+        "Member 2: chlorine_residual_mg_l",
+        "Member 2: turbidity_ntu"
+      ],
+      "contributing_factors": [
+        "Sewer asset J2 shows a hydraulic anomaly (no surcharge)."
+      ],
+      "disclaimer": "This indicator identifies POTENTIAL cross-contamination risk and field investigation priority only. It never proves actual drinking-water contamination without physical inspection and laboratory confirmation."
+    },
+    {
+      "timestamp": "2026-01-01T04:24:01",
+      "sewer_asset_id": "J2",
+      "nearest_water_pipe_id": null,
+      "status_label": "INSUFFICIENT_DATA_AWAITING_TEAM_INPUTS",
+      "potential_risk_score": 35.0,
+      "investigation_priority": "INDETERMINATE_AWAITING_TEAM_INPUTS",
+      "uncertainty_level": "HIGH",
+      "input_completeness_pct": 20.0,
+      "score_breakdown": {
+        "sewer_hazard_pts": 35.0,
+        "spatial_proximity_pts": 0.0,
+        "water_pressure_pts": 0.0,
+        "water_quality_pts": 0.0
+      },
+      "available_inputs": [
+        "sewer_hydraulic_state",
+        "sewer_risk_score"
+      ],
+      "missing_inputs": [
+        "Member 1: distance_to_water_pipe_m (spatial proximity)",
+        "Member 1: water_pressure_bar (drinking-water line pressure)",
+        "Member 2: chlorine_residual_mg_l",
+        "Member 2: turbidity_ntu"
+      ],
+      "contributing_factors": [
+        "Sewer asset J2 is in state FLOODING_SIMULATED."
+      ],
+      "disclaimer": "This indicator identifies POTENTIAL cross-contamination risk and field investigation priority only. It never proves actual drinking-water contamination without physical inspection and laboratory confirmation."
+    },
+    {
+      "timestamp": "2026-01-01T02:32:27",
+      "sewer_asset_id": "J2",
+      "nearest_water_pipe_id": null,
+      "status_label": "INSUFFICIENT_DATA_AWAITING_TEAM_INPUTS",
+      "potential_risk_score": 35.0,
+      "investigation_priority": "INDETERMINATE_AWAITING_TEAM_INPUTS",
+      "uncertainty_level": "HIGH",
+      "input_completeness_pct": 20.0,
+      "score_breakdown": {
+        "sewer_hazard_pts": 35.0,
+        "spatial_proximity_pts": 0.0,
+        "water_pressure_pts": 0.0,
+        "water_quality_pts": 0.0
+      },
+      "available_inputs": [
+        "sewer_hydraulic_state",
+        "sewer_risk_score"
+      ],
+      "missing_inputs": [
+        "Member 1: distance_to_water_pipe_m (spatial proximity)",
+        "Member 1: water_pressure_bar (drinking-water line pressure)",
+        "Member 2: chlorine_residual_mg_l",
+        "Member 2: turbidity_ntu"
+      ],
+      "contributing_factors": [
+        "Sewer asset J2 is in state FLOODING_SIMULATED."
+      ],
+      "disclaimer": "This indicator identifies POTENTIAL cross-contamination risk and field investigation priority only. It never proves actual drinking-water contamination without physical inspection and laboratory confirmation."
+    },
+    {
+      "timestamp": "2026-01-01T01:41:41",
+      "sewer_asset_id": "J2",
+      "nearest_water_pipe_id": null,
+      "status_label": "INSUFFICIENT_DATA_AWAITING_TEAM_INPUTS",
+      "potential_risk_score": 35.0,
+      "investigation_priority": "INDETERMINATE_AWAITING_TEAM_INPUTS",
+      "uncertainty_level": "HIGH",
+      "input_completeness_pct": 20.0,
+      "score_breakdown": {
+        "sewer_hazard_pts": 35.0,
+        "spatial_proximity_pts": 0.0,
+        "water_pressure_pts": 0.0,
+        "water_quality_pts": 0.0
+      },
+      "available_inputs": [
+        "sewer_hydraulic_state",
+        "sewer_risk_score"
+      ],
+      "missing_inputs": [
+        "Member 1: distance_to_water_pipe_m (spatial proximity)",
+        "Member 1: water_pressure_bar (drinking-water line pressure)",
+        "Member 2: chlorine_residual_mg_l",
+        "Member 2: turbidity_ntu"
+      ],
+      "contributing_factors": [
+        "Sewer asset J2 is in state FLOODING_SIMULATED."
+      ],
+      "disclaimer": "This indicator identifies POTENTIAL cross-contamination risk and field investigation priority only. It never proves actual drinking-water contamination without physical inspection and laboratory confirmation."
+    },
+    {
+      "timestamp": "2026-01-01T05:57:21",
+      "sewer_asset_id": "J3",
+      "nearest_water_pipe_id": null,
+      "status_label": "INSUFFICIENT_DATA_AWAITING_TEAM_INPUTS",
+      "potential_risk_score": 35.0,
+      "investigation_priority": "INDETERMINATE_AWAITING_TEAM_INPUTS",
+      "uncertainty_level": "HIGH",
+      "input_completeness_pct": 20.0,
+      "score_breakdown": {
+        "sewer_hazard_pts": 35.0,
+        "spatial_proximity_pts": 0.0,
+        "water_pressure_pts": 0.0,
+        "water_quality_pts": 0.0
+      },
+      "available_inputs": [
+        "sewer_hydraulic_state",
+        "sewer_risk_score"
+      ],
+      "missing_inputs": [
+        "Member 1: distance_to_water_pipe_m (spatial proximity)",
+        "Member 1: water_pressure_bar (drinking-water line pressure)",
+        "Member 2: chlorine_residual_mg_l",
+        "Member 2: turbidity_ntu"
+      ],
+      "contributing_factors": [
+        "Sewer asset J3 is in state FLOODING_SIMULATED."
+      ],
+      "disclaimer": "This indicator identifies POTENTIAL cross-contamination risk and field investigation priority only. It never proves actual drinking-water contamination without physical inspection and laboratory confirmation."
+    }
+  ],
+  "scenarios": {
+    "normal": {
+      "title": "Normal Dry-Weather Baseline",
+      "is_baseline": true,
+      "modifications": [
+        "None (original preserved baseline model)."
+      ],
+      "assumptions": [
+        "Constant dry-weather inflow of 0.005 CMS (5 L/s) at upstream junction J1.",
+        "All three circular conduits (C1, C2, C3) have 0.30 m diameter, 100 m length, n=0.013, 1% slope.",
+        "All junctions (J1, J2, J3) have 2.0 m maximum depth; free outfall at O1."
+      ],
+      "step_readings_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\simulations\\normal_step_readings.csv",
+      "report_series_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\simulations\\normal_report_series.csv",
+      "rpt_summary": {
+        "continuity_error_pct": -0.335,
+        "runoff_continuity_error_pct": null,
+        "surcharged_nodes": [],
+        "flooded_nodes": [],
+        "surcharged_conduits": [],
+        "node_depth_summary": {
+          "J1": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.05,
+            "max_depth_m": 0.05,
+            "max_hgl_m": 100.05,
+            "reported_max_depth_m": 0.05
+          },
+          "J2": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.05,
+            "max_depth_m": 0.05,
+            "max_hgl_m": 99.05,
+            "reported_max_depth_m": 0.05
+          },
+          "J3": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.05,
+            "max_depth_m": 0.05,
+            "max_hgl_m": 98.05,
+            "reported_max_depth_m": 0.05
+          },
+          "O1": {
+            "type": "OUTFALL",
+            "avg_depth_m": 0.05,
+            "max_depth_m": 0.05,
+            "max_hgl_m": 97.05,
+            "reported_max_depth_m": 0.05
+          }
+        },
+        "link_flow_summary": {
+          "C1": {
+            "swmm_id": "1",
+            "max_flow_cms": 0.005,
+            "max_velocity_mps": 0.94,
+            "max_full_flow_ratio": 0.05,
+            "max_full_depth_ratio": 0.16
+          },
+          "C2": {
+            "swmm_id": "2",
+            "max_flow_cms": 0.005,
+            "max_velocity_mps": 0.84,
+            "max_full_flow_ratio": 0.05,
+            "max_full_depth_ratio": 0.16
+          },
+          "C3": {
+            "swmm_id": "3",
+            "max_flow_cms": 0.005,
+            "max_velocity_mps": 0.72,
+            "max_full_flow_ratio": 0.05,
+            "max_full_depth_ratio": 0.15
+          }
+        }
+      },
+      "anomaly_summary": {
+        "total_alerts": 0,
+        "node_stats": {
+          "J1": {
+            "baseline_mean_m": 0.046287,
+            "baseline_std_m": 0.002,
+            "upper_threshold_m": 0.055545,
+            "threshold_exceeded_count": 0,
+            "zscore_exceeded_count": 0,
+            "combined_anomaly_count": 0,
+            "max_observed_depth_m": 0.049941,
+            "max_zscore": 1.827
+          },
+          "J2": {
+            "baseline_mean_m": 0.046065,
+            "baseline_std_m": 0.003099,
+            "upper_threshold_m": 0.055278,
+            "threshold_exceeded_count": 0,
+            "zscore_exceeded_count": 0,
+            "combined_anomaly_count": 0,
+            "max_observed_depth_m": 0.048054,
+            "max_zscore": 0.642
+          },
+          "J3": {
+            "baseline_mean_m": 0.045757,
+            "baseline_std_m": 0.004529,
+            "upper_threshold_m": 0.054908,
+            "threshold_exceeded_count": 0,
+            "zscore_exceeded_count": 0,
+            "combined_anomaly_count": 0,
+            "max_observed_depth_m": 0.04651,
+            "max_zscore": 0.166
+          }
+        },
+        "conduit_stats": {
+          "C1": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 0,
+              "low_count": 0,
+              "zscore_count": 0,
+              "combined_count": 0,
+              "min_observed": 0.0,
+              "max_observed": 0.005268
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.719869,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.079803,
+              "lower_threshold": 0.503908,
+              "high_count": 0,
+              "low_count": 0,
+              "zscore_count": 0,
+              "combined_count": 0,
+              "min_observed": 0.023257,
+              "max_observed": 0.888857
+            }
+          },
+          "C2": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 0,
+              "low_count": 0,
+              "zscore_count": 0,
+              "combined_count": 0,
+              "min_observed": 0.0,
+              "max_observed": 0.005155
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.719802,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.079703,
+              "lower_threshold": 0.503862,
+              "high_count": 0,
+              "low_count": 0,
+              "zscore_count": 0,
+              "combined_count": 0,
+              "min_observed": 0.0,
+              "max_observed": 0.820696
+            }
+          },
+          "C3": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 0,
+              "low_count": 0,
+              "zscore_count": 0,
+              "combined_count": 0,
+              "min_observed": 0.0,
+              "max_observed": 0.005037
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.720144,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.080217,
+              "lower_threshold": 0.504101,
+              "high_count": 0,
+              "low_count": 0,
+              "zscore_count": 0,
+              "combined_count": 0,
+              "min_observed": 0.0,
+              "max_observed": 0.721643
+            }
+          }
+        },
+        "isolation_forest_validation": {
+          "enabled": true,
+          "validated": true,
+          "training_window": "post_startup_steady_state (>=15 min)",
+          "features_used": [
+            "J1_depth_m",
+            "J2_depth_m",
+            "J3_depth_m",
+            "C1_flow_cms",
+            "C2_flow_cms",
+            "C3_flow_cms",
+            "C1_velocity_mps",
+            "C2_velocity_mps",
+            "C3_velocity_mps"
+          ],
+          "normal_false_positive_rate_pct": 1.01,
+          "target_flagged_count": 21,
+          "target_flagged_pct": 0.97
+        },
+        "alerts_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\anomalies\\normal_alerts.csv"
+      },
+      "risk_summary": {
+        "network_max_risk_score": 2.07,
+        "network_highest_status": "NORMAL",
+        "asset_summaries": [
+          {
+            "asset_id": "J1",
+            "scenario": "normal",
+            "baseline_depth_m": 0.046287,
+            "max_depth_m_observed": 0.049941,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 2.5,
+            "connected_downstream_conduit": "C1",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 0.0,
+            "flooded_minutes": 0.0,
+            "max_flooding_cms": 0.0,
+            "max_risk_score": 2.07,
+            "mean_risk_score": 1.96,
+            "highest_hydraulic_state": "NORMAL"
+          },
+          {
+            "asset_id": "J2",
+            "scenario": "normal",
+            "baseline_depth_m": 0.046065,
+            "max_depth_m_observed": 0.048054,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 2.4,
+            "connected_downstream_conduit": "C2",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 0.0,
+            "flooded_minutes": 0.0,
+            "max_flooding_cms": 0.0,
+            "max_risk_score": 2.02,
+            "mean_risk_score": 1.94,
+            "highest_hydraulic_state": "NORMAL"
+          },
+          {
+            "asset_id": "J3",
+            "scenario": "normal",
+            "baseline_depth_m": 0.045757,
+            "max_depth_m_observed": 0.04651,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 2.33,
+            "connected_downstream_conduit": "C3",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 0.0,
+            "flooded_minutes": 0.0,
+            "max_flooding_cms": 0.0,
+            "max_risk_score": 1.97,
+            "mean_risk_score": 1.93,
+            "highest_hydraulic_state": "NORMAL"
+          }
+        ],
+        "risk_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\risk\\normal_overflow_risk.csv"
+      }
+    },
+    "partial_blockage": {
+      "title": "Partial Blockage in Conduit C2 (0.30 m -> 0.15 m)",
+      "is_baseline": false,
+      "modifications": [
+        "Conduit 2 circular diameter reduced from 0.30 m to 0.15 m."
+      ],
+      "assumptions": [
+        "Represents sediment/grease accumulation constricting effective flow area in Conduit 2 (J2->J3).",
+        "Inflow remains constant at 0.005 CMS at J1."
+      ],
+      "step_readings_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\simulations\\partial_blockage_step_readings.csv",
+      "report_series_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\simulations\\partial_blockage_report_series.csv",
+      "rpt_summary": {
+        "continuity_error_pct": -0.333,
+        "runoff_continuity_error_pct": null,
+        "surcharged_nodes": [],
+        "flooded_nodes": [],
+        "surcharged_conduits": [],
+        "node_depth_summary": {
+          "J1": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.05,
+            "max_depth_m": 0.05,
+            "max_hgl_m": 100.05,
+            "reported_max_depth_m": 0.05
+          },
+          "J2": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.06,
+            "max_depth_m": 0.06,
+            "max_hgl_m": 99.06,
+            "reported_max_depth_m": 0.06
+          },
+          "J3": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.05,
+            "max_depth_m": 0.05,
+            "max_hgl_m": 98.05,
+            "reported_max_depth_m": 0.05
+          },
+          "O1": {
+            "type": "OUTFALL",
+            "avg_depth_m": 0.05,
+            "max_depth_m": 0.05,
+            "max_hgl_m": 97.05,
+            "reported_max_depth_m": 0.05
+          }
+        },
+        "link_flow_summary": {
+          "C1": {
+            "swmm_id": "1",
+            "max_flow_cms": 0.005,
+            "max_velocity_mps": 0.92,
+            "max_full_flow_ratio": 0.06,
+            "max_full_depth_ratio": 0.18
+          },
+          "C2": {
+            "swmm_id": "2",
+            "max_flow_cms": 0.005,
+            "max_velocity_mps": 0.91,
+            "max_full_flow_ratio": 0.33,
+            "max_full_depth_ratio": 0.36
+          },
+          "C3": {
+            "swmm_id": "3",
+            "max_flow_cms": 0.005,
+            "max_velocity_mps": 0.72,
+            "max_full_flow_ratio": 0.05,
+            "max_full_depth_ratio": 0.15
+          }
+        }
+      },
+      "anomaly_summary": {
+        "total_alerts": 2131,
+        "node_stats": {
+          "J1": {
+            "baseline_mean_m": 0.046287,
+            "baseline_std_m": 0.002,
+            "upper_threshold_m": 0.055545,
+            "threshold_exceeded_count": 0,
+            "zscore_exceeded_count": 0,
+            "combined_anomaly_count": 0,
+            "max_observed_depth_m": 0.049414,
+            "max_zscore": 1.563
+          },
+          "J2": {
+            "baseline_mean_m": 0.046065,
+            "baseline_std_m": 0.003099,
+            "upper_threshold_m": 0.055278,
+            "threshold_exceeded_count": 2131,
+            "zscore_exceeded_count": 2131,
+            "combined_anomaly_count": 2131,
+            "max_observed_depth_m": 0.061998,
+            "max_zscore": 5.141
+          },
+          "J3": {
+            "baseline_mean_m": 0.045757,
+            "baseline_std_m": 0.004529,
+            "upper_threshold_m": 0.054908,
+            "threshold_exceeded_count": 0,
+            "zscore_exceeded_count": 0,
+            "combined_anomaly_count": 0,
+            "max_observed_depth_m": 0.046363,
+            "max_zscore": 0.134
+          }
+        },
+        "conduit_stats": {
+          "C1": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 0,
+              "low_count": 0,
+              "zscore_count": 0,
+              "combined_count": 0,
+              "min_observed": 0.0,
+              "max_observed": 0.005347
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.719869,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.079803,
+              "lower_threshold": 0.503908,
+              "high_count": 0,
+              "low_count": 0,
+              "zscore_count": 0,
+              "combined_count": 0,
+              "min_observed": 0.023257,
+              "max_observed": 0.872333
+            }
+          },
+          "C2": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 0,
+              "low_count": 0,
+              "zscore_count": 0,
+              "combined_count": 0,
+              "min_observed": 0.0,
+              "max_observed": 0.005009
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.719802,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.079703,
+              "lower_threshold": 0.503862,
+              "high_count": 0,
+              "low_count": 0,
+              "zscore_count": 0,
+              "combined_count": 0,
+              "min_observed": 0.0,
+              "max_observed": 0.894433
+            }
+          },
+          "C3": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 0,
+              "low_count": 0,
+              "zscore_count": 0,
+              "combined_count": 0,
+              "min_observed": 0.0,
+              "max_observed": 0.005004
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.720144,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.080217,
+              "lower_threshold": 0.504101,
+              "high_count": 0,
+              "low_count": 0,
+              "zscore_count": 0,
+              "combined_count": 0,
+              "min_observed": 0.0,
+              "max_observed": 0.720297
+            }
+          }
+        },
+        "isolation_forest_validation": {
+          "enabled": true,
+          "validated": true,
+          "training_window": "post_startup_steady_state (>=15 min)",
+          "features_used": [
+            "J1_depth_m",
+            "J2_depth_m",
+            "J3_depth_m",
+            "C1_flow_cms",
+            "C2_flow_cms",
+            "C3_flow_cms",
+            "C1_velocity_mps",
+            "C2_velocity_mps",
+            "C3_velocity_mps"
+          ],
+          "normal_false_positive_rate_pct": 1.01,
+          "target_flagged_count": 37,
+          "target_flagged_pct": 1.71
+        },
+        "alerts_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\anomalies\\partial_blockage_alerts.csv"
+      },
+      "risk_summary": {
+        "network_max_risk_score": 22.8,
+        "network_highest_status": "ANOMALY_ONLY",
+        "asset_summaries": [
+          {
+            "asset_id": "J1",
+            "scenario": "partial_blockage",
+            "baseline_depth_m": 0.046287,
+            "max_depth_m_observed": 0.049414,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 2.47,
+            "connected_downstream_conduit": "C1",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 0.0,
+            "flooded_minutes": 0.0,
+            "max_flooding_cms": 0.0,
+            "max_risk_score": 2.07,
+            "mean_risk_score": 1.96,
+            "highest_hydraulic_state": "NORMAL"
+          },
+          {
+            "asset_id": "J2",
+            "scenario": "partial_blockage",
+            "baseline_depth_m": 0.046065,
+            "max_depth_m_observed": 0.061998,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 3.1,
+            "connected_downstream_conduit": "C2",
+            "crown_height_m": 0.15,
+            "surcharged_minutes": 0.0,
+            "flooded_minutes": 0.0,
+            "max_flooding_cms": 0.0,
+            "max_risk_score": 22.8,
+            "mean_risk_score": 21.27,
+            "highest_hydraulic_state": "ANOMALY_ONLY"
+          },
+          {
+            "asset_id": "J3",
+            "scenario": "partial_blockage",
+            "baseline_depth_m": 0.045757,
+            "max_depth_m_observed": 0.046363,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 2.32,
+            "connected_downstream_conduit": "C3",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 0.0,
+            "flooded_minutes": 0.0,
+            "max_flooding_cms": 0.0,
+            "max_risk_score": 1.96,
+            "mean_risk_score": 1.93,
+            "highest_hydraulic_state": "NORMAL"
+          }
+        ],
+        "risk_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\risk\\partial_blockage_overflow_risk.csv"
+      }
+    },
+    "severe_blockage": {
+      "title": "Severe Blockage in Conduit C2 (0.30 m -> 0.06 m)",
+      "is_baseline": false,
+      "modifications": [
+        "Conduit 2 circular diameter reduced from 0.30 m to 0.06 m.",
+        "Conduit 2 Manning roughness increased from 0.013 to 0.025 to reflect debris drag."
+      ],
+      "assumptions": [
+        "Models near-complete obstruction (debris/root intrusion) in C2 while 0.005 CMS continues entering J1.",
+        "Original network elevations, inflow, and simulation window (6 hours) remain unchanged."
+      ],
+      "step_readings_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\simulations\\severe_blockage_step_readings.csv",
+      "report_series_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\simulations\\severe_blockage_report_series.csv",
+      "rpt_summary": {
+        "continuity_error_pct": 0.636,
+        "runoff_continuity_error_pct": null,
+        "surcharged_nodes": [
+          {
+            "node_id": "J1",
+            "type": "JUNCTION",
+            "hours_surcharged": 5.51,
+            "max_height_above_crown_m": 0.747,
+            "min_depth_below_rim_m": 0.953
+          },
+          {
+            "node_id": "J2",
+            "type": "JUNCTION",
+            "hours_surcharged": 5.71,
+            "max_height_above_crown_m": 1.7,
+            "min_depth_below_rim_m": 0.0
+          }
+        ],
+        "flooded_nodes": [
+          {
+            "node_id": "J2",
+            "hours_flooded": 5.5,
+            "max_rate_cms": 0.004,
+            "total_flood_volume_10e6_ltr": 0.079,
+            "max_ponded_depth_m": 0.0
+          }
+        ],
+        "surcharged_conduits": [
+          {
+            "conduit_id": "C1",
+            "hours_full_both_ends": 5.51,
+            "hours_full_upstream": 5.51,
+            "hours_full_downstream": 5.71,
+            "hours_above_normal_flow": 0.01,
+            "hours_capacity_limited": 0.01
+          },
+          {
+            "conduit_id": "C2",
+            "hours_full_both_ends": 0.01,
+            "hours_full_upstream": 5.94,
+            "hours_full_downstream": 0.01,
+            "hours_above_normal_flow": 5.71,
+            "hours_capacity_limited": 0.01
+          }
+        ],
+        "node_depth_summary": {
+          "J1": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.93,
+            "max_depth_m": 1.05,
+            "max_hgl_m": 101.05,
+            "reported_max_depth_m": 1.0
+          },
+          "J2": {
+            "type": "JUNCTION",
+            "avg_depth_m": 1.88,
+            "max_depth_m": 2.0,
+            "max_hgl_m": 101.0,
+            "reported_max_depth_m": 2.0
+          },
+          "J3": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.02,
+            "max_depth_m": 0.02,
+            "max_hgl_m": 98.02,
+            "reported_max_depth_m": 0.02
+          },
+          "O1": {
+            "type": "OUTFALL",
+            "avg_depth_m": 0.02,
+            "max_depth_m": 0.02,
+            "max_hgl_m": 97.02,
+            "reported_max_depth_m": 0.02
+          }
+        },
+        "link_flow_summary": {
+          "C1": {
+            "swmm_id": "1",
+            "max_flow_cms": 0.005,
+            "max_velocity_mps": 0.9,
+            "max_full_flow_ratio": 0.06,
+            "max_full_depth_ratio": 1.0
+          },
+          "C2": {
+            "swmm_id": "2",
+            "max_flow_cms": 0.001,
+            "max_velocity_mps": 0.49,
+            "max_full_flow_ratio": 1.45,
+            "max_full_depth_ratio": 0.68
+          },
+          "C3": {
+            "swmm_id": "3",
+            "max_flow_cms": 0.001,
+            "max_velocity_mps": 0.44,
+            "max_full_flow_ratio": 0.01,
+            "max_full_depth_ratio": 0.07
+          }
+        }
+      },
+      "anomaly_summary": {
+        "total_alerts": 16690,
+        "node_stats": {
+          "J1": {
+            "baseline_mean_m": 0.046287,
+            "baseline_std_m": 0.002,
+            "upper_threshold_m": 0.055545,
+            "threshold_exceeded_count": 2052,
+            "zscore_exceeded_count": 2053,
+            "combined_anomaly_count": 2053,
+            "max_observed_depth_m": 1.046558,
+            "max_zscore": 500.135
+          },
+          "J2": {
+            "baseline_mean_m": 0.046065,
+            "baseline_std_m": 0.003099,
+            "upper_threshold_m": 0.055278,
+            "threshold_exceeded_count": 2140,
+            "zscore_exceeded_count": 2140,
+            "combined_anomaly_count": 2140,
+            "max_observed_depth_m": 2.0,
+            "max_zscore": 630.491
+          },
+          "J3": {
+            "baseline_mean_m": 0.045757,
+            "baseline_std_m": 0.004529,
+            "upper_threshold_m": 0.054908,
+            "threshold_exceeded_count": 0,
+            "zscore_exceeded_count": 2070,
+            "combined_anomaly_count": 2070,
+            "max_observed_depth_m": 0.021416,
+            "max_zscore": -5.375
+          }
+        },
+        "conduit_stats": {
+          "C1": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 0,
+              "low_count": 77,
+              "zscore_count": 77,
+              "combined_count": 77,
+              "min_observed": 0.0,
+              "max_observed": 0.005378
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.719869,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.079803,
+              "lower_threshold": 0.503908,
+              "high_count": 0,
+              "low_count": 2070,
+              "zscore_count": 2070,
+              "combined_count": 2070,
+              "min_observed": 0.010982,
+              "max_observed": 0.849298
+            }
+          },
+          "C2": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 0,
+              "low_count": 2070,
+              "zscore_count": 2070,
+              "combined_count": 2070,
+              "min_observed": 0.0,
+              "max_observed": 0.000995
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.719802,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.079703,
+              "lower_threshold": 0.503862,
+              "high_count": 0,
+              "low_count": 90,
+              "zscore_count": 2070,
+              "combined_count": 2070,
+              "min_observed": 0.0,
+              "max_observed": 0.537715
+            }
+          },
+          "C3": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 0,
+              "low_count": 2070,
+              "zscore_count": 2070,
+              "combined_count": 2070,
+              "min_observed": 0.0,
+              "max_observed": 0.000995
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.720144,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.080217,
+              "lower_threshold": 0.504101,
+              "high_count": 0,
+              "low_count": 2070,
+              "zscore_count": 2070,
+              "combined_count": 2070,
+              "min_observed": 0.0,
+              "max_observed": 0.477422
+            }
+          }
+        },
+        "isolation_forest_validation": {
+          "enabled": true,
+          "validated": true,
+          "training_window": "post_startup_steady_state (>=15 min)",
+          "features_used": [
+            "J1_depth_m",
+            "J2_depth_m",
+            "J3_depth_m",
+            "C1_flow_cms",
+            "C2_flow_cms",
+            "C3_flow_cms",
+            "C1_velocity_mps",
+            "C2_velocity_mps",
+            "C3_velocity_mps"
+          ],
+          "normal_false_positive_rate_pct": 1.01,
+          "target_flagged_count": 94,
+          "target_flagged_pct": 4.35
+        },
+        "alerts_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\anomalies\\severe_blockage_alerts.csv"
+      },
+      "risk_summary": {
+        "network_max_risk_score": 85.04,
+        "network_highest_status": "FLOODING_SIMULATED",
+        "asset_summaries": [
+          {
+            "asset_id": "J1",
+            "scenario": "severe_blockage",
+            "baseline_depth_m": 0.046287,
+            "max_depth_m_observed": 1.046558,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 52.33,
+            "connected_downstream_conduit": "C1",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 330.33,
+            "flooded_minutes": 0.0,
+            "max_flooding_cms": 0.0,
+            "max_risk_score": 43.59,
+            "mean_risk_score": 39.43,
+            "highest_hydraulic_state": "SURCHARGED"
+          },
+          {
+            "asset_id": "J2",
+            "scenario": "severe_blockage",
+            "baseline_depth_m": 0.046065,
+            "max_depth_m_observed": 2.0,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 100.0,
+            "connected_downstream_conduit": "C2",
+            "crown_height_m": 0.06,
+            "surcharged_minutes": 356.5,
+            "flooded_minutes": 329.67,
+            "max_flooding_cms": 0.004144,
+            "max_risk_score": 85.04,
+            "mean_risk_score": 80.06,
+            "highest_hydraulic_state": "FLOODING_SIMULATED"
+          },
+          {
+            "asset_id": "J3",
+            "scenario": "severe_blockage",
+            "baseline_depth_m": 0.045757,
+            "max_depth_m_observed": 0.021416,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 1.07,
+            "connected_downstream_conduit": "C3",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 0.0,
+            "flooded_minutes": 0.0,
+            "max_flooding_cms": 0.0,
+            "max_risk_score": 0.63,
+            "mean_risk_score": 0.61,
+            "highest_hydraulic_state": "NORMAL"
+          }
+        ],
+        "risk_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\risk\\severe_blockage_overflow_risk.csv"
+      }
+    },
+    "heavy_rainfall": {
+      "title": "Heavy Rainfall Storm Runoff & Surcharge",
+      "is_baseline": false,
+      "modifications": [
+        "Enabled Rainfall/Runoff via [RAINGAGES], [SUBCATCHMENTS], [SUBAREAS], and [TIMESERIES] STORM_TS.",
+        "Added urban impervious catchments S1 (4.5 ha -> J1) and S2 (4.5 ha -> J2) with peak 60 mm/hr rainfall."
+      ],
+      "assumptions": [
+        "Models stormwater inflow/infiltration entering a combined or storm-impacted sewer.",
+        "Original conduits, slopes, elevations, and 0.005 CMS dry-weather baseflow at J1 are preserved."
+      ],
+      "step_readings_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\simulations\\heavy_rainfall_step_readings.csv",
+      "report_series_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\simulations\\heavy_rainfall_report_series.csv",
+      "rpt_summary": {
+        "continuity_error_pct": -0.26,
+        "runoff_continuity_error_pct": -1.594,
+        "surcharged_nodes": [
+          {
+            "node_id": "J1",
+            "type": "JUNCTION",
+            "hours_surcharged": 1.15,
+            "max_height_above_crown_m": 1.7,
+            "min_depth_below_rim_m": 0.0
+          },
+          {
+            "node_id": "J2",
+            "type": "JUNCTION",
+            "hours_surcharged": 1.4,
+            "max_height_above_crown_m": 1.7,
+            "min_depth_below_rim_m": 0.0
+          },
+          {
+            "node_id": "J3",
+            "type": "JUNCTION",
+            "hours_surcharged": 1.35,
+            "max_height_above_crown_m": 1.7,
+            "min_depth_below_rim_m": 0.0
+          }
+        ],
+        "flooded_nodes": [
+          {
+            "node_id": "J1",
+            "hours_flooded": 0.55,
+            "max_rate_cms": 0.133,
+            "total_flood_volume_10e6_ltr": 0.091,
+            "max_ponded_depth_m": 0.0
+          },
+          {
+            "node_id": "J2",
+            "hours_flooded": 0.92,
+            "max_rate_cms": 0.188,
+            "total_flood_volume_10e6_ltr": 0.231,
+            "max_ponded_depth_m": 0.0
+          },
+          {
+            "node_id": "J3",
+            "hours_flooded": 0.01,
+            "max_rate_cms": 0.027,
+            "total_flood_volume_10e6_ltr": 0.0,
+            "max_ponded_depth_m": 0.0
+          }
+        ],
+        "surcharged_conduits": [
+          {
+            "conduit_id": "C1",
+            "hours_full_both_ends": 1.15,
+            "hours_full_upstream": 1.15,
+            "hours_full_downstream": 1.4,
+            "hours_above_normal_flow": 0.01,
+            "hours_capacity_limited": 0.01
+          },
+          {
+            "conduit_id": "C2",
+            "hours_full_both_ends": 1.34,
+            "hours_full_upstream": 1.4,
+            "hours_full_downstream": 1.34,
+            "hours_above_normal_flow": 1.53,
+            "hours_capacity_limited": 1.34
+          },
+          {
+            "conduit_id": "C3",
+            "hours_full_both_ends": 0.01,
+            "hours_full_upstream": 1.34,
+            "hours_full_downstream": 0.01,
+            "hours_above_normal_flow": 1.58,
+            "hours_capacity_limited": 0.01
+          }
+        ],
+        "node_depth_summary": {
+          "J1": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.39,
+            "max_depth_m": 2.0,
+            "max_hgl_m": 102.0,
+            "reported_max_depth_m": 2.0
+          },
+          "J2": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.47,
+            "max_depth_m": 2.0,
+            "max_hgl_m": 101.0,
+            "reported_max_depth_m": 2.0
+          },
+          "J3": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.29,
+            "max_depth_m": 2.0,
+            "max_hgl_m": 100.0,
+            "reported_max_depth_m": 1.1
+          },
+          "O1": {
+            "type": "OUTFALL",
+            "avg_depth_m": 0.14,
+            "max_depth_m": 0.27,
+            "max_hgl_m": 97.27,
+            "reported_max_depth_m": 0.27
+          }
+        },
+        "link_flow_summary": {
+          "C1": {
+            "swmm_id": "1",
+            "max_flow_cms": 0.097,
+            "max_velocity_mps": 1.37,
+            "max_full_flow_ratio": 1.0,
+            "max_full_depth_ratio": 1.0
+          },
+          "C2": {
+            "swmm_id": "2",
+            "max_flow_cms": 0.159,
+            "max_velocity_mps": 2.26,
+            "max_full_flow_ratio": 1.64,
+            "max_full_depth_ratio": 1.0
+          },
+          "C3": {
+            "swmm_id": "3",
+            "max_flow_cms": 0.134,
+            "max_velocity_mps": 1.92,
+            "max_full_flow_ratio": 1.38,
+            "max_full_depth_ratio": 0.96
+          }
+        }
+      },
+      "anomaly_summary": {
+        "total_alerts": 14509,
+        "node_stats": {
+          "J1": {
+            "baseline_mean_m": 0.046287,
+            "baseline_std_m": 0.002,
+            "upper_threshold_m": 0.055545,
+            "threshold_exceeded_count": 1543,
+            "zscore_exceeded_count": 1733,
+            "combined_anomaly_count": 1733,
+            "max_observed_depth_m": 2.0,
+            "max_zscore": 976.856
+          },
+          "J2": {
+            "baseline_mean_m": 0.046065,
+            "baseline_std_m": 0.003099,
+            "upper_threshold_m": 0.055278,
+            "threshold_exceeded_count": 1794,
+            "zscore_exceeded_count": 1793,
+            "combined_anomaly_count": 1794,
+            "max_observed_depth_m": 2.0,
+            "max_zscore": 630.491
+          },
+          "J3": {
+            "baseline_mean_m": 0.045757,
+            "baseline_std_m": 0.004529,
+            "upper_threshold_m": 0.054908,
+            "threshold_exceeded_count": 1788,
+            "zscore_exceeded_count": 1670,
+            "combined_anomaly_count": 1788,
+            "max_observed_depth_m": 2.0,
+            "max_zscore": 431.514
+          }
+        },
+        "conduit_stats": {
+          "C1": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 1503,
+              "low_count": 0,
+              "zscore_count": 1703,
+              "combined_count": 1703,
+              "min_observed": 0.0,
+              "max_observed": 0.096717
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.719869,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.079803,
+              "lower_threshold": 0.503908,
+              "high_count": 322,
+              "low_count": 0,
+              "zscore_count": 825,
+              "combined_count": 825,
+              "min_observed": 0.023257,
+              "max_observed": 1.368114
+            }
+          },
+          "C2": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 1789,
+              "low_count": 0,
+              "zscore_count": 1795,
+              "combined_count": 1795,
+              "min_observed": 0.0,
+              "max_observed": 0.158931
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.719802,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.079703,
+              "lower_threshold": 0.503862,
+              "high_count": 1108,
+              "low_count": 0,
+              "zscore_count": 1537,
+              "combined_count": 1537,
+              "min_observed": 0.0,
+              "max_observed": 2.268627
+            }
+          },
+          "C3": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 1786,
+              "low_count": 0,
+              "zscore_count": 1790,
+              "combined_count": 1790,
+              "min_observed": 0.0,
+              "max_observed": 0.133655
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.720144,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.080217,
+              "lower_threshold": 0.504101,
+              "high_count": 1117,
+              "low_count": 0,
+              "zscore_count": 1544,
+              "combined_count": 1544,
+              "min_observed": 0.0,
+              "max_observed": 1.932343
+            }
+          }
+        },
+        "isolation_forest_validation": {
+          "enabled": true,
+          "validated": true,
+          "training_window": "post_startup_steady_state (>=15 min)",
+          "features_used": [
+            "J1_depth_m",
+            "J2_depth_m",
+            "J3_depth_m",
+            "C1_flow_cms",
+            "C2_flow_cms",
+            "C3_flow_cms",
+            "C1_velocity_mps",
+            "C2_velocity_mps",
+            "C3_velocity_mps"
+          ],
+          "normal_false_positive_rate_pct": 1.01,
+          "target_flagged_count": 1995,
+          "target_flagged_pct": 92.28
+        },
+        "alerts_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\anomalies\\heavy_rainfall_alerts.csv"
+      },
+      "risk_summary": {
+        "network_max_risk_score": 100.0,
+        "network_highest_status": "FLOODING_SIMULATED",
+        "asset_summaries": [
+          {
+            "asset_id": "J1",
+            "scenario": "heavy_rainfall",
+            "baseline_depth_m": 0.046287,
+            "max_depth_m_observed": 2.0,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 100.0,
+            "connected_downstream_conduit": "C1",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 68.67,
+            "flooded_minutes": 33.33,
+            "max_flooding_cms": 0.133123,
+            "max_risk_score": 99.9,
+            "mean_risk_score": 26.23,
+            "highest_hydraulic_state": "FLOODING_SIMULATED"
+          },
+          {
+            "asset_id": "J2",
+            "scenario": "heavy_rainfall",
+            "baseline_depth_m": 0.046065,
+            "max_depth_m_observed": 2.0,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 100.0,
+            "connected_downstream_conduit": "C2",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 83.67,
+            "flooded_minutes": 55.5,
+            "max_flooding_cms": 0.1882,
+            "max_risk_score": 100.0,
+            "mean_risk_score": 32.72,
+            "highest_hydraulic_state": "FLOODING_SIMULATED"
+          },
+          {
+            "asset_id": "J3",
+            "scenario": "heavy_rainfall",
+            "baseline_depth_m": 0.045757,
+            "max_depth_m_observed": 2.0,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 100.0,
+            "connected_downstream_conduit": "C3",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 81.0,
+            "flooded_minutes": 0.17,
+            "max_flooding_cms": 0.027177,
+            "max_risk_score": 100.0,
+            "mean_risk_score": 28.0,
+            "highest_hydraulic_state": "FLOODING_SIMULATED"
+          }
+        ],
+        "risk_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\risk\\heavy_rainfall_overflow_risk.csv"
+      }
+    },
+    "sudden_inflow": {
+      "title": "Sudden Abnormal Discharge / Shock Inflow at J2",
+      "is_baseline": false,
+      "modifications": [
+        "Added [INFLOWS] time-series discharge SURGE_TS at J2 peaking at 0.14 CMS (140 L/s) from 01:00 to 02:30."
+      ],
+      "assumptions": [
+        "Models sudden unauthorized industrial/tanker discharge, main break intrusion, or upstream pump dump at J2.",
+        "Baseline 0.005 CMS inflow at J1 and all pipe geometries are unchanged."
+      ],
+      "step_readings_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\simulations\\sudden_inflow_step_readings.csv",
+      "report_series_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\simulations\\sudden_inflow_report_series.csv",
+      "rpt_summary": {
+        "continuity_error_pct": -0.08,
+        "runoff_continuity_error_pct": null,
+        "surcharged_nodes": [
+          {
+            "node_id": "J1",
+            "type": "JUNCTION",
+            "hours_surcharged": 0.62,
+            "max_height_above_crown_m": 0.705,
+            "min_depth_below_rim_m": 0.995
+          },
+          {
+            "node_id": "J2",
+            "type": "JUNCTION",
+            "hours_surcharged": 0.93,
+            "max_height_above_crown_m": 1.7,
+            "min_depth_below_rim_m": 0.0
+          },
+          {
+            "node_id": "J3",
+            "type": "JUNCTION",
+            "hours_surcharged": 0.9,
+            "max_height_above_crown_m": 0.799,
+            "min_depth_below_rim_m": 0.901
+          }
+        ],
+        "flooded_nodes": [
+          {
+            "node_id": "J2",
+            "hours_flooded": 0.34,
+            "max_rate_cms": 0.012,
+            "total_flood_volume_10e6_ltr": 0.007,
+            "max_ponded_depth_m": 0.0
+          }
+        ],
+        "surcharged_conduits": [
+          {
+            "conduit_id": "C1",
+            "hours_full_both_ends": 0.62,
+            "hours_full_upstream": 0.62,
+            "hours_full_downstream": 0.93,
+            "hours_above_normal_flow": 0.01,
+            "hours_capacity_limited": 0.01
+          },
+          {
+            "conduit_id": "C2",
+            "hours_full_both_ends": 0.9,
+            "hours_full_upstream": 0.93,
+            "hours_full_downstream": 0.9,
+            "hours_above_normal_flow": 1.02,
+            "hours_capacity_limited": 0.9
+          },
+          {
+            "conduit_id": "C3",
+            "hours_full_both_ends": 0.01,
+            "hours_full_upstream": 0.9,
+            "hours_full_downstream": 0.01,
+            "hours_above_normal_flow": 1.03,
+            "hours_capacity_limited": 0.01
+          }
+        ],
+        "node_depth_summary": {
+          "J1": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.13,
+            "max_depth_m": 1.0,
+            "max_hgl_m": 101.0,
+            "reported_max_depth_m": 1.0
+          },
+          "J2": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.3,
+            "max_depth_m": 2.0,
+            "max_hgl_m": 101.0,
+            "reported_max_depth_m": 2.0
+          },
+          "J3": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.19,
+            "max_depth_m": 1.1,
+            "max_hgl_m": 99.1,
+            "reported_max_depth_m": 1.1
+          },
+          "O1": {
+            "type": "OUTFALL",
+            "avg_depth_m": 0.1,
+            "max_depth_m": 0.27,
+            "max_hgl_m": 97.27,
+            "reported_max_depth_m": 0.27
+          }
+        },
+        "link_flow_summary": {
+          "C1": {
+            "swmm_id": "1",
+            "max_flow_cms": 0.015,
+            "max_velocity_mps": 0.94,
+            "max_full_flow_ratio": 0.16,
+            "max_full_depth_ratio": 1.0
+          },
+          "C2": {
+            "swmm_id": "2",
+            "max_flow_cms": 0.133,
+            "max_velocity_mps": 1.89,
+            "max_full_flow_ratio": 1.38,
+            "max_full_depth_ratio": 1.0
+          },
+          "C3": {
+            "swmm_id": "3",
+            "max_flow_cms": 0.133,
+            "max_velocity_mps": 1.92,
+            "max_full_flow_ratio": 1.38,
+            "max_full_depth_ratio": 0.96
+          }
+        }
+      },
+      "anomaly_summary": {
+        "total_alerts": 5015,
+        "node_stats": {
+          "J1": {
+            "baseline_mean_m": 0.046287,
+            "baseline_std_m": 0.002,
+            "upper_threshold_m": 0.055545,
+            "threshold_exceeded_count": 312,
+            "zscore_exceeded_count": 316,
+            "combined_anomaly_count": 316,
+            "max_observed_depth_m": 1.004996,
+            "max_zscore": 479.355
+          },
+          "J2": {
+            "baseline_mean_m": 0.046065,
+            "baseline_std_m": 0.003099,
+            "upper_threshold_m": 0.055278,
+            "threshold_exceeded_count": 659,
+            "zscore_exceeded_count": 659,
+            "combined_anomaly_count": 659,
+            "max_observed_depth_m": 2.0,
+            "max_zscore": 630.491
+          },
+          "J3": {
+            "baseline_mean_m": 0.045757,
+            "baseline_std_m": 0.004529,
+            "upper_threshold_m": 0.054908,
+            "threshold_exceeded_count": 664,
+            "zscore_exceeded_count": 657,
+            "combined_anomaly_count": 664,
+            "max_observed_depth_m": 1.09922,
+            "max_zscore": 232.614
+          }
+        },
+        "conduit_stats": {
+          "C1": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 45,
+              "low_count": 39,
+              "zscore_count": 96,
+              "combined_count": 96,
+              "min_observed": -0.005297,
+              "max_observed": 0.015431
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.719869,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.079803,
+              "lower_threshold": 0.503908,
+              "high_count": 0,
+              "low_count": 643,
+              "zscore_count": 652,
+              "combined_count": 652,
+              "min_observed": -0.085032,
+              "max_observed": 0.888857
+            }
+          },
+          "C2": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 657,
+              "low_count": 0,
+              "zscore_count": 663,
+              "combined_count": 663,
+              "min_observed": 0.0,
+              "max_observed": 0.133357
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.719802,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.079703,
+              "lower_threshold": 0.503862,
+              "high_count": 616,
+              "low_count": 0,
+              "zscore_count": 645,
+              "combined_count": 645,
+              "min_observed": 0.0,
+              "max_observed": 1.886408
+            }
+          },
+          "C3": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 661,
+              "low_count": 0,
+              "zscore_count": 669,
+              "combined_count": 669,
+              "min_observed": 0.0,
+              "max_observed": 0.133357
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.720144,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.080217,
+              "lower_threshold": 0.504101,
+              "high_count": 617,
+              "low_count": 0,
+              "zscore_count": 651,
+              "combined_count": 651,
+              "min_observed": 0.0,
+              "max_observed": 1.929594
+            }
+          }
+        },
+        "isolation_forest_validation": {
+          "enabled": true,
+          "validated": true,
+          "training_window": "post_startup_steady_state (>=15 min)",
+          "features_used": [
+            "J1_depth_m",
+            "J2_depth_m",
+            "J3_depth_m",
+            "C1_flow_cms",
+            "C2_flow_cms",
+            "C3_flow_cms",
+            "C1_velocity_mps",
+            "C2_velocity_mps",
+            "C3_velocity_mps"
+          ],
+          "normal_false_positive_rate_pct": 1.01,
+          "target_flagged_count": 767,
+          "target_flagged_pct": 35.49
+        },
+        "alerts_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\anomalies\\sudden_inflow_alerts.csv"
+      },
+      "risk_summary": {
+        "network_max_risk_score": 86.46,
+        "network_highest_status": "FLOODING_SIMULATED",
+        "asset_summaries": [
+          {
+            "asset_id": "J1",
+            "scenario": "sudden_inflow",
+            "baseline_depth_m": 0.046287,
+            "max_depth_m_observed": 1.004996,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 50.25,
+            "connected_downstream_conduit": "C1",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 36.83,
+            "flooded_minutes": 0.0,
+            "max_flooding_cms": 0.0,
+            "max_risk_score": 35.66,
+            "mean_risk_score": 5.45,
+            "highest_hydraulic_state": "SURCHARGED"
+          },
+          {
+            "asset_id": "J2",
+            "scenario": "sudden_inflow",
+            "baseline_depth_m": 0.046065,
+            "max_depth_m_observed": 2.0,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 100.0,
+            "connected_downstream_conduit": "C2",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 55.5,
+            "flooded_minutes": 20.17,
+            "max_flooding_cms": 0.011551,
+            "max_risk_score": 86.46,
+            "mean_risk_score": 16.54,
+            "highest_hydraulic_state": "FLOODING_SIMULATED"
+          },
+          {
+            "asset_id": "J3",
+            "scenario": "sudden_inflow",
+            "baseline_depth_m": 0.045757,
+            "max_depth_m_observed": 1.09922,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 54.96,
+            "connected_downstream_conduit": "C3",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 54.0,
+            "flooded_minutes": 0.0,
+            "max_flooding_cms": 0.0,
+            "max_risk_score": 60.77,
+            "mean_risk_score": 14.0,
+            "highest_hydraulic_state": "SURCHARGED"
+          }
+        ],
+        "risk_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\risk\\sudden_inflow_overflow_risk.csv"
+      }
+    },
+    "downstream_siltation": {
+      "title": "Downstream Obstruction / Siltation in Conduit C3",
+      "is_baseline": false,
+      "modifications": [
+        "Conduit 3 circular diameter reduced from 0.30 m to 0.08 m.",
+        "Conduit 3 Manning roughness increased from 0.013 to 0.030."
+      ],
+      "assumptions": [
+        "Models downstream outfall constriction or heavy sediment buildup in C3 causing backwater at J3.",
+        "Dry-weather inflow at J1 remains 0.005 CMS."
+      ],
+      "step_readings_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\simulations\\downstream_siltation_step_readings.csv",
+      "report_series_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\simulations\\downstream_siltation_report_series.csv",
+      "rpt_summary": {
+        "continuity_error_pct": 0.91,
+        "runoff_continuity_error_pct": null,
+        "surcharged_nodes": [
+          {
+            "node_id": "J2",
+            "type": "JUNCTION",
+            "hours_surcharged": 5.07,
+            "max_height_above_crown_m": 0.735,
+            "min_depth_below_rim_m": 0.965
+          },
+          {
+            "node_id": "J3",
+            "type": "JUNCTION",
+            "hours_surcharged": 5.62,
+            "max_height_above_crown_m": 1.7,
+            "min_depth_below_rim_m": 0.0
+          }
+        ],
+        "flooded_nodes": [
+          {
+            "node_id": "J3",
+            "hours_flooded": 5.06,
+            "max_rate_cms": 0.003,
+            "total_flood_volume_10e6_ltr": 0.053,
+            "max_ponded_depth_m": 0.0
+          }
+        ],
+        "surcharged_conduits": [
+          {
+            "conduit_id": "C1",
+            "hours_full_both_ends": 0.01,
+            "hours_full_upstream": 0.01,
+            "hours_full_downstream": 5.07,
+            "hours_above_normal_flow": 0.01,
+            "hours_capacity_limited": 0.01
+          },
+          {
+            "conduit_id": "C2",
+            "hours_full_both_ends": 5.07,
+            "hours_full_upstream": 5.07,
+            "hours_full_downstream": 5.62,
+            "hours_above_normal_flow": 0.01,
+            "hours_capacity_limited": 0.01
+          },
+          {
+            "conduit_id": "C3",
+            "hours_full_both_ends": 0.01,
+            "hours_full_upstream": 5.88,
+            "hours_full_downstream": 0.01,
+            "hours_above_normal_flow": 5.62,
+            "hours_capacity_limited": 0.01
+          }
+        ],
+        "node_depth_summary": {
+          "J1": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.05,
+            "max_depth_m": 0.05,
+            "max_hgl_m": 100.05,
+            "reported_max_depth_m": 0.05
+          },
+          "J2": {
+            "type": "JUNCTION",
+            "avg_depth_m": 0.86,
+            "max_depth_m": 1.04,
+            "max_hgl_m": 100.04,
+            "reported_max_depth_m": 1.0
+          },
+          "J3": {
+            "type": "JUNCTION",
+            "avg_depth_m": 1.8,
+            "max_depth_m": 2.0,
+            "max_hgl_m": 100.0,
+            "reported_max_depth_m": 2.0
+          },
+          "O1": {
+            "type": "OUTFALL",
+            "avg_depth_m": 0.05,
+            "max_depth_m": 0.05,
+            "max_hgl_m": 97.05,
+            "reported_max_depth_m": 0.05
+          }
+        },
+        "link_flow_summary": {
+          "C1": {
+            "swmm_id": "1",
+            "max_flow_cms": 0.005,
+            "max_velocity_mps": 0.94,
+            "max_full_flow_ratio": 0.05,
+            "max_full_depth_ratio": 0.58
+          },
+          "C2": {
+            "swmm_id": "2",
+            "max_flow_cms": 0.005,
+            "max_velocity_mps": 0.77,
+            "max_full_flow_ratio": 0.05,
+            "max_full_depth_ratio": 1.0
+          },
+          "C3": {
+            "swmm_id": "3",
+            "max_flow_cms": 0.002,
+            "max_velocity_mps": 0.48,
+            "max_full_flow_ratio": 1.68,
+            "max_full_depth_ratio": 0.81
+          }
+        }
+      },
+      "anomaly_summary": {
+        "total_alerts": 12565,
+        "node_stats": {
+          "J1": {
+            "baseline_mean_m": 0.046287,
+            "baseline_std_m": 0.002,
+            "upper_threshold_m": 0.055545,
+            "threshold_exceeded_count": 0,
+            "zscore_exceeded_count": 0,
+            "combined_anomaly_count": 0,
+            "max_observed_depth_m": 0.049944,
+            "max_zscore": 1.828
+          },
+          "J2": {
+            "baseline_mean_m": 0.046065,
+            "baseline_std_m": 0.003099,
+            "upper_threshold_m": 0.055278,
+            "threshold_exceeded_count": 2016,
+            "zscore_exceeded_count": 2016,
+            "combined_anomaly_count": 2016,
+            "max_observed_depth_m": 1.035376,
+            "max_zscore": 319.228
+          },
+          "J3": {
+            "baseline_mean_m": 0.045757,
+            "baseline_std_m": 0.004529,
+            "upper_threshold_m": 0.054908,
+            "threshold_exceeded_count": 2126,
+            "zscore_exceeded_count": 2124,
+            "combined_anomaly_count": 2126,
+            "max_observed_depth_m": 2.0,
+            "max_zscore": 431.514
+          }
+        },
+        "conduit_stats": {
+          "C1": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 0,
+              "low_count": 0,
+              "zscore_count": 0,
+              "combined_count": 0,
+              "min_observed": 0.0,
+              "max_observed": 0.005259
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.719869,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.079803,
+              "lower_threshold": 0.503908,
+              "high_count": 0,
+              "low_count": 2003,
+              "zscore_count": 2010,
+              "combined_count": 2010,
+              "min_observed": 0.023257,
+              "max_observed": 0.88892
+            }
+          },
+          "C2": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 0,
+              "low_count": 203,
+              "zscore_count": 203,
+              "combined_count": 203,
+              "min_observed": 0.0,
+              "max_observed": 0.00506
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.719802,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.079703,
+              "lower_threshold": 0.503862,
+              "high_count": 0,
+              "low_count": 2070,
+              "zscore_count": 2070,
+              "combined_count": 2070,
+              "min_observed": 0.0,
+              "max_observed": 0.754209
+            }
+          },
+          "C3": {
+            "flow_cms": {
+              "steady_baseline_mean": 0.005,
+              "steady_baseline_std": 0.0005,
+              "upper_threshold": 0.0075,
+              "lower_threshold": 0.0035,
+              "high_count": 0,
+              "low_count": 2070,
+              "zscore_count": 2070,
+              "combined_count": 2070,
+              "min_observed": 0.0,
+              "max_observed": 0.002074
+            },
+            "velocity_mps": {
+              "steady_baseline_mean": 0.720144,
+              "steady_baseline_std": 0.05,
+              "upper_threshold": 1.080217,
+              "lower_threshold": 0.504101,
+              "high_count": 0,
+              "low_count": 2070,
+              "zscore_count": 2070,
+              "combined_count": 2070,
+              "min_observed": 0.0,
+              "max_observed": 0.501702
+            }
+          }
+        },
+        "isolation_forest_validation": {
+          "enabled": true,
+          "validated": true,
+          "training_window": "post_startup_steady_state (>=15 min)",
+          "features_used": [
+            "J1_depth_m",
+            "J2_depth_m",
+            "J3_depth_m",
+            "C1_flow_cms",
+            "C2_flow_cms",
+            "C3_flow_cms",
+            "C1_velocity_mps",
+            "C2_velocity_mps",
+            "C3_velocity_mps"
+          ],
+          "normal_false_positive_rate_pct": 1.01,
+          "target_flagged_count": 2024,
+          "target_flagged_pct": 93.7
+        },
+        "alerts_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\anomalies\\downstream_siltation_alerts.csv"
+      },
+      "risk_summary": {
+        "network_max_risk_score": 84.56,
+        "network_highest_status": "FLOODING_SIMULATED",
+        "asset_summaries": [
+          {
+            "asset_id": "J1",
+            "scenario": "downstream_siltation",
+            "baseline_depth_m": 0.046287,
+            "max_depth_m_observed": 0.049944,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 2.5,
+            "connected_downstream_conduit": "C1",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 0.0,
+            "flooded_minutes": 0.0,
+            "max_flooding_cms": 0.0,
+            "max_risk_score": 2.07,
+            "mean_risk_score": 1.96,
+            "highest_hydraulic_state": "NORMAL"
+          },
+          {
+            "asset_id": "J2",
+            "scenario": "downstream_siltation",
+            "baseline_depth_m": 0.046065,
+            "max_depth_m_observed": 1.035376,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 51.77,
+            "connected_downstream_conduit": "C2",
+            "crown_height_m": 0.3,
+            "surcharged_minutes": 304.17,
+            "flooded_minutes": 0.0,
+            "max_flooding_cms": 0.0,
+            "max_risk_score": 43.59,
+            "mean_risk_score": 37.33,
+            "highest_hydraulic_state": "SURCHARGED"
+          },
+          {
+            "asset_id": "J3",
+            "scenario": "downstream_siltation",
+            "baseline_depth_m": 0.045757,
+            "max_depth_m_observed": 2.0,
+            "manhole_rim_depth_m": 2.0,
+            "max_depth_fill_pct": 100.0,
+            "connected_downstream_conduit": "C3",
+            "crown_height_m": 0.08,
+            "surcharged_minutes": 352.67,
+            "flooded_minutes": 303.17,
+            "max_flooding_cms": 0.002984,
+            "max_risk_score": 84.56,
+            "mean_risk_score": 77.05,
+            "highest_hydraulic_state": "FLOODING_SIMULATED"
+          }
+        ],
+        "risk_csv": "C:\\Users\\ABHIJNA A\\OneDrive\\Documents\\BluePulse\\data\\outputs\\risk\\downstream_siltation_overflow_risk.csv"
+      }
+    }
+  }
+}
