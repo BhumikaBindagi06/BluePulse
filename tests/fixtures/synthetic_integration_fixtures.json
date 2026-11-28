@@ -1,0 +1,116 @@
+{
+  "_synthetic_test_data": true,
+  "_notice": "SYNTHETIC TEST FIXTURES ONLY - NOT REAL FIELD TELEMETRY OR REAL MEMBER 1/2 NETWORK GEOMETRIES. Use solely for automated and integration testing until Member 1 and Member 2 supply live/real datasets.",
+  "water_crs": "EPSG:4326",
+  "sewer_crs": "EPSG:4326",
+  "member1_water_network_geojson": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "pipe_id": "SYNTHETIC_TEST_W_MAIN_1",
+          "diameter_m": 0.25,
+          "material": "DI",
+          "pressure_zone": "SYNTHETIC_ZONE_A",
+          "is_synthetic_test_data": true
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [77.59460, 12.97160],
+            [77.59550, 12.97160],
+            [77.59640, 12.97160]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "pipe_id": "SYNTHETIC_TEST_W_BRANCH_2",
+          "diameter_m": 0.15,
+          "material": "HDPE",
+          "pressure_zone": "SYNTHETIC_ZONE_A",
+          "is_synthetic_test_data": true
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [77.59550, 12.97160],
+            [77.59550, 12.97205]
+          ]
+        }
+      }
+    ]
+  },
+  "member3_georeferenced_sewer_geojson": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "asset_id": "SYNTHETIC_TEST_J1",
+          "asset_type": "sewer_node",
+          "is_synthetic_test_data": true
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [77.59460, 12.97164]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "asset_id": "SYNTHETIC_TEST_J2",
+          "asset_type": "sewer_node",
+          "is_synthetic_test_data": true
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [77.59550, 12.97163]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "asset_id": "SYNTHETIC_TEST_C2",
+          "asset_type": "sewer_conduit",
+          "is_synthetic_test_data": true
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [77.59550, 12.97163],
+            [77.59640, 12.97180]
+          ]
+        }
+      }
+    ]
+  },
+  "member1_pressure_cases": {
+    "nominal": {
+      "water_pressure_bar": 2.4,
+      "is_synthetic_test_data": true
+    },
+    "reduced": {
+      "water_pressure_bar": 0.6,
+      "is_synthetic_test_data": true
+    },
+    "critical_low": {
+      "water_pressure_bar": 0.1,
+      "is_synthetic_test_data": true
+    }
+  },
+  "member2_water_quality_cases": {
+    "nominal": {
+      "chlorine_residual_mg_l": 0.75,
+      "turbidity_ntu": 0.4,
+      "is_synthetic_test_data": true
+    },
+    "contaminated_suspect": {
+      "chlorine_residual_mg_l": 0.08,
+      "turbidity_ntu": 6.4,
+      "is_synthetic_test_data": true
+    }
+  }
+}

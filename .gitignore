@@ -1,0 +1,23 @@
+
+# Python environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Pytest cache
+.pytest_cache/
+
+# IDE files
+.idea/
+.vscode/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Temporary SWMM execution artifacts
+sewer_module/models/scenarios/_run_*

@@ -1,0 +1,152 @@
+[
+  {
+    "timestamp": "2026-01-01T01:05:21",
+    "sewer_asset_id": "J2",
+    "nearest_water_pipe_id": null,
+    "status_label": "INSUFFICIENT_DATA_AWAITING_TEAM_INPUTS",
+    "potential_risk_score": 6.84,
+    "investigation_priority": "INDETERMINATE_AWAITING_TEAM_INPUTS",
+    "uncertainty_level": "HIGH",
+    "input_completeness_pct": 20.0,
+    "score_breakdown": {
+      "sewer_hazard_pts": 6.84,
+      "spatial_proximity_pts": 0.0,
+      "water_pressure_pts": 0.0,
+      "water_quality_pts": 0.0
+    },
+    "available_inputs": [
+      "sewer_hydraulic_state",
+      "sewer_risk_score"
+    ],
+    "missing_inputs": [
+      "Member 1: distance_to_water_pipe_m (spatial proximity)",
+      "Member 1: water_pressure_bar (drinking-water line pressure)",
+      "Member 2: chlorine_residual_mg_l",
+      "Member 2: turbidity_ntu"
+    ],
+    "contributing_factors": [
+      "Sewer asset J2 shows a hydraulic anomaly (no surcharge)."
+    ],
+    "disclaimer": "This indicator identifies POTENTIAL cross-contamination risk and field investigation priority only. It never proves actual drinking-water contamination without physical inspection and laboratory confirmation."
+  },
+  {
+    "timestamp": "2026-01-01T04:24:01",
+    "sewer_asset_id": "J2",
+    "nearest_water_pipe_id": null,
+    "status_label": "INSUFFICIENT_DATA_AWAITING_TEAM_INPUTS",
+    "potential_risk_score": 35.0,
+    "investigation_priority": "INDETERMINATE_AWAITING_TEAM_INPUTS",
+    "uncertainty_level": "HIGH",
+    "input_completeness_pct": 20.0,
+    "score_breakdown": {
+      "sewer_hazard_pts": 35.0,
+      "spatial_proximity_pts": 0.0,
+      "water_pressure_pts": 0.0,
+      "water_quality_pts": 0.0
+    },
+    "available_inputs": [
+      "sewer_hydraulic_state",
+      "sewer_risk_score"
+    ],
+    "missing_inputs": [
+      "Member 1: distance_to_water_pipe_m (spatial proximity)",
+      "Member 1: water_pressure_bar (drinking-water line pressure)",
+      "Member 2: chlorine_residual_mg_l",
+      "Member 2: turbidity_ntu"
+    ],
+    "contributing_factors": [
+      "Sewer asset J2 is in state FLOODING_SIMULATED."
+    ],
+    "disclaimer": "This indicator identifies POTENTIAL cross-contamination risk and field investigation priority only. It never proves actual drinking-water contamination without physical inspection and laboratory confirmation."
+  },
+  {
+    "timestamp": "2026-01-01T02:32:27",
+    "sewer_asset_id": "J2",
+    "nearest_water_pipe_id": null,
+    "status_label": "INSUFFICIENT_DATA_AWAITING_TEAM_INPUTS",
+    "potential_risk_score": 35.0,
+    "investigation_priority": "INDETERMINATE_AWAITING_TEAM_INPUTS",
+    "uncertainty_level": "HIGH",
+    "input_completeness_pct": 20.0,
+    "score_breakdown": {
+      "sewer_hazard_pts": 35.0,
+      "spatial_proximity_pts": 0.0,
+      "water_pressure_pts": 0.0,
+      "water_quality_pts": 0.0
+    },
+    "available_inputs": [
+      "sewer_hydraulic_state",
+      "sewer_risk_score"
+    ],
+    "missing_inputs": [
+      "Member 1: distance_to_water_pipe_m (spatial proximity)",
+      "Member 1: water_pressure_bar (drinking-water line pressure)",
+      "Member 2: chlorine_residual_mg_l",
+      "Member 2: turbidity_ntu"
+    ],
+    "contributing_factors": [
+      "Sewer asset J2 is in state FLOODING_SIMULATED."
+    ],
+    "disclaimer": "This indicator identifies POTENTIAL cross-contamination risk and field investigation priority only. It never proves actual drinking-water contamination without physical inspection and laboratory confirmation."
+  },
+  {
+    "timestamp": "2026-01-01T01:41:41",
+    "sewer_asset_id": "J2",
+    "nearest_water_pipe_id": null,
+    "status_label": "INSUFFICIENT_DATA_AWAITING_TEAM_INPUTS",
+    "potential_risk_score": 35.0,
+    "investigation_priority": "INDETERMINATE_AWAITING_TEAM_INPUTS",
+    "uncertainty_level": "HIGH",
+    "input_completeness_pct": 20.0,
+    "score_breakdown": {
+      "sewer_hazard_pts": 35.0,
+      "spatial_proximity_pts": 0.0,
+      "water_pressure_pts": 0.0,
+      "water_quality_pts": 0.0
+    },
+    "available_inputs": [
+      "sewer_hydraulic_state",
+      "sewer_risk_score"
+    ],
+    "missing_inputs": [
+      "Member 1: distance_to_water_pipe_m (spatial proximity)",
+      "Member 1: water_pressure_bar (drinking-water line pressure)",
+      "Member 2: chlorine_residual_mg_l",
+      "Member 2: turbidity_ntu"
+    ],
+    "contributing_factors": [
+      "Sewer asset J2 is in state FLOODING_SIMULATED."
+    ],
+    "disclaimer": "This indicator identifies POTENTIAL cross-contamination risk and field investigation priority only. It never proves actual drinking-water contamination without physical inspection and laboratory confirmation."
+  },
+  {
+    "timestamp": "2026-01-01T05:57:21",
+    "sewer_asset_id": "J3",
+    "nearest_water_pipe_id": null,
+    "status_label": "INSUFFICIENT_DATA_AWAITING_TEAM_INPUTS",
+    "potential_risk_score": 35.0,
+    "investigation_priority": "INDETERMINATE_AWAITING_TEAM_INPUTS",
+    "uncertainty_level": "HIGH",
+    "input_completeness_pct": 20.0,
+    "score_breakdown": {
+      "sewer_hazard_pts": 35.0,
+      "spatial_proximity_pts": 0.0,
+      "water_pressure_pts": 0.0,
+      "water_quality_pts": 0.0
+    },
+    "available_inputs": [
+      "sewer_hydraulic_state",
+      "sewer_risk_score"
+    ],
+    "missing_inputs": [
+      "Member 1: distance_to_water_pipe_m (spatial proximity)",
+      "Member 1: water_pressure_bar (drinking-water line pressure)",
+      "Member 2: chlorine_residual_mg_l",
+      "Member 2: turbidity_ntu"
+    ],
+    "contributing_factors": [
+      "Sewer asset J3 is in state FLOODING_SIMULATED."
+    ],
+    "disclaimer": "This indicator identifies POTENTIAL cross-contamination risk and field investigation priority only. It never proves actual drinking-water contamination without physical inspection and laboratory confirmation."
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "status": "awaiting_member1_water_network_data",
+  "message": "No drinking-water pipeline geometries were provided by Member 1. BluePulse never fabricates water-network coordinates.",
+  "sewer_inp_coordinate_metadata": {
+    "map_units": "None",
+    "is_schematic_unprojected": true,
+    "nodes_found": [
+      "J1",
+      "J2",
+      "J3",
+      "O1"
+    ],
+    "note": "bluepulse_sewer.inp currently uses schematic 'Units None' map coordinates. To compute real-world proximity, provide georeferenced GeoJSON geometries with an explicit CRS (e.g., EPSG:4326 or local UTM EPSG) for both networks."
+  },
+  "required_member1_schema": {
+    "format": "GeoJSON FeatureCollection",
+    "crs": "Explicit CRS string such as 'EPSG:4326' or projected UTM EPSG in meters",
+    "required_feature_properties": [
+      "pipe_id",
+      "diameter_m",
+      "material",
+      "pressure_zone"
+    ],
+    "geometry_types": [
+      "LineString",
+      "MultiLineString"
+    ]
+  },
+  "proximity_pairs": []
+}

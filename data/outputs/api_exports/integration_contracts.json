@@ -1,0 +1,23 @@
+{
+  "module": "BluePulse Member 3 - Sewer & Sanitation",
+  "fastapi_router_import": "from sewer_module.api import router as sewer_router",
+  "endpoints": [
+    "GET /api/v1/sewer/health",
+    "GET /api/v1/sewer/scenarios",
+    "GET /api/v1/sewer/readings/{scenario}",
+    "GET /api/v1/sewer/anomalies/{scenario}",
+    "GET /api/v1/sewer/risk/{scenario}",
+    "POST /api/v1/sewer/spatial/proximity",
+    "POST /api/v1/sewer/cross-contamination/assess",
+    "GET /api/v1/sewer/schemas/integration"
+  ],
+  "required_from_member_1": {
+    "water_network_geojson": "GeoJSON FeatureCollection of drinking-water pipelines with CRS (e.g. EPSG:4326 or UTM)",
+    "sewer_geojson": "GeoJSON FeatureCollection of georeferenced sewer pipes/nodes matching real-world CRS",
+    "water_pressure_bar": "Per-pipe or per-zone drinking-water pressure telemetry (bar)"
+  },
+  "required_from_member_2": {
+    "chlorine_residual_mg_l": "Free chlorine residual readings (mg/L)",
+    "turbidity_ntu": "Water turbidity readings (NTU)"
+  }
+}
